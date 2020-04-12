@@ -1,5 +1,5 @@
 #!/bin/bash
-#v0.0.3
+#v0.0.4
 # Check for internet connection
 echo "----	----"
 ping www.google.com -c 1
@@ -26,7 +26,8 @@ echo "Please create one EFI, SWAP and ROOT partition."
 echo
 echo "Is this the right drive?"
 echo "/dev/$disk (y/n)"
-if [ $disk = y ] || [ $disk = Y ]
+read diskcheck
+if [ $diskcheck = y ] || [ $diskcheck = Y ]
 then
 	sudo cfdisk /dev/$disk
 	echo "Now select your partitions, Example if you created an EFI partition on /dev/sda4 type: 4"
