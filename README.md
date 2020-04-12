@@ -1,10 +1,10 @@
-==== v0.0.2 ====                             
+==== v0.0.3 ====                             
 ```bash
 !! Only works on x86_64-efi systems !!
 ```
 A simpel Arch Linux install script to make the installation process faster and more simple.
 
-Installation:
+#Installation:
 1. Boot the Arch Linux installation and make sure you have an internet connection.
 
 2. Clone this repository
@@ -19,5 +19,5 @@ After that: git clone https://github.com/Arch-Linux-Scripts/install.git
 Follow the instructions...
 
 5. When the script is done, reboot and run the command: ./user.sh
-Follow the instructions... 
+Follow the instructions...
 (The file is located in the root directory / )

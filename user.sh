@@ -1,25 +1,25 @@
 #!/bin/bash
-#v0.0.2
+#v0.0.3
 # Check for internet connection
-echo ----	----
+echo "----	----"
 ping www.google.com -c 1
-echo ----	----
-echo Are you connected to the internet? (y/n)
+echo "----	----"
+echo "Are you connected to the internet? (y/n)"
 read net
 if [ $net = y ] || [ $net = Y ]
 then
-	echo Nice, lets continue...
+	echo "Nice, lets continue..."
 else
 	echo
-	echo !! You need an internet connection to use this script !!
+	echo "!! You need an internet connection to use this script !!"
 	exit 1
 fi
 echo
 
 # Add an user
-echo Choose your username:
+echo "Choose your username:"
 read usr
-echo Is Username -$usr- correct? (y/n)
+echo "Is Username -$usr- correct? (y/n)"
 read check
 if [ $check = y ] || [ $check = Y ]
 then
@@ -27,31 +27,31 @@ then
 	passwd $usr
 else
 	echo
-	echo !! Failed to create a user !!
+	echo "!! Failed to create a user !!"
 	exit 1
 fi
 echo
 
 # Sudo setup
-echo Do you want to enable sudo? (y/n)
+echo "Do you want to enable sudo? (y/n)"
 read sudo
 if [ $sudo = y ] || [ $sudo  = Y ]
 then
 	pacman -S sudo
-	echo Uncoment the "#" where you see, "%wheel ALL=(ALL) ALL" to add sudo privileges to your user.
-	echo continue (y/n)
+	echo "Uncoment the -#- where you see, -%wheel ALL=(ALL) ALL- to add sudo privileges to your user."
+	echo "continue (y/n)"
 else
 	Sudo not activated for this user
 fi
-echo If you skipped sudo answer: n
+echo "If you skipped sudo, answer: n"
 read wheel
 if [ $wheel = y ] || [ $wheel = Y ]
 then
 	EDITOR=nano visudo
 else
-	echo Done!
+	echo "Done!"
 fi
 echo
 
-echo Now login as your new user!
-echo Type exit to logout from root.
+echo "Now login as your new user!"
+echo "Type exit to logout from root."

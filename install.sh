@@ -1,17 +1,17 @@
 #!/bin/bash
-#v0.0.2
+#v0.0.3
 # Check for internet connection
-echo ----	----
+echo "----	----"
 ping www.google.com -c 1
-echo ----	----
-echo Are you connected to the internet? (y/n)
+echo "----	----"
+echo "Are you connected to the internet? (y/n)"
 read net
 if [ $net = y ] || [ $net = Y ]
 then
-	echo Nice, lets continue...
+	echo "Nice, lets continue..."
 else
 	echo
-	echo !! You need an internet connection to use this script !!
+	echo "!! You need an internet connection to use this script !!"
 	exit 1
 fi
 echo
@@ -19,32 +19,32 @@ echo
 # Partitioning
 lsblk
 echo
-echo Now you need to select what drive you want to install Arch Linux on, Example: sda
+echo "Now you need to select what drive you want to install Arch Linux on, Example: sda"
 read disk
-echo After the next choise, cfdisk are going to be opened.
-echo Please create one EFI, SWAP and ROOT partition.
+echo "After the next choise, cfdisk are going to be opened."
+echo "Please create one EFI, SWAP and ROOT partition."
 echo
-echo Is this the right drive?
-echo /dev/$disk (y/n)
+echo "Is this the right drive?"
+echo "/dev/$disk (y/n)"
 if [ $disk = y ] || [ $disk = Y ]
 then
 	sudo cfdisk /dev/$disk
-	echo Now select your partitions, Example if you created an EFI partition on /dev/sda4 type: 4
-	echo Where are your EFI partition located:
+	echo "Now select your partitions, Example if you created an EFI partition on /dev/sda4 type: 4"
+	echo "Where are your EFI partition located:"
 	read efi
-	echo Where are your SWAP partition located:
+	echo "Where are your SWAP partition located:"
 	read swap
-	echo Where are your ROOT partition located:
+	echo "Where are your ROOT partition located:"
 	read root
 	echo
-	echo Is this correct?
-	echo EFI = /dev/$disk$efi
-	echo SWAP = /dev/$disk$swap
-	echo ROOT = /dev/$disk$root
-	echo (y/n)
+	echo "Is this correct?"
+	echo "EFI = /dev/$disk$efi"
+	echo "SWAP = /dev/$disk$swap"
+	echo "ROOT = /dev/$disk$root"
+	echo "(y/n)"
 else
 	echo
-	echo !! You did not create any partitions !!
+	echo "!! You did not create any partitions !!"
 	exit 1
 fi
 read partition
@@ -56,13 +56,13 @@ then
 	mkfs.ext4 /dev/$disk$root
 else
 	echo
-	echo !! Partitioning failed !!
+	echo "!! Partitioning failed !!"
 	exit 1
 fi
 echo
 
 # Base installation
-echo Do you want to continue with the installation? (y/n)
+echo "Do you want to continue with the installation? (y/n)"
 read install
 if [ $install = y ] || [ $install = Y ]
 then
@@ -76,7 +76,7 @@ then
 	arch-chroot /mnt ./chroot.sh
 else
 	echo
-	echo !! Installation failed (pacstrap) !!
+	echo "!! Installation failed (pacstrap) !!"
 	exit 1
 fi
 echo
@@ -84,7 +84,7 @@ echo
 # Optional !!!!!!!!!!!!!! comming later !!!!!!!!!!!!!!
 #
 # Window Managers...
-#echo Do you want to install i3 WM later in the installation? (y/n)
+#echo "Do you want to install i3 WM later in the installation? (y/n)"
 #read wm
 #if [ wm = y ] || [ wm = Y ]
 #then
@@ -92,12 +92,12 @@ echo
 #	chmod 777 /mnt/i3-install.sh
 #else
 #	echo 
-#	echo !! Unable to copy WM file !!
+#	echo "!! Unable to copy WM file !!"
 #	exit 1
 #fi
 echo
 
-echo End of script!
-echo Your installation is BASE coplete
-echo To create a user, boot into your new OS and run ./user.sh
-echo (In the root directory)
+echo "End of script!"
+echo "Your installation is BASE coplete"
+echo "To create a user, boot into your new OS and run ./user.sh"
+echo "(In the root directory)"
