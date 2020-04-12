@@ -1,9 +1,11 @@
 #!/bin/bash
-#v0.0.3
+#v0.0.9
 # Check for internet connection
-echo "----	----"
+echo "----	---- ---- ---- ----"
+echo
 ping www.google.com -c 1
-echo "----	----"
+echo
+echo "----	---- ---- ---- ----"
 echo "Are you connected to the internet? (y/n)"
 read net
 if [ $net = y ] || [ $net = Y ]
@@ -17,11 +19,12 @@ fi
 echo
 
 # Locale
-echo "Uncomment your locale and save"
+echo "Uncomment the # for your prefered locale and save"
 echo "Continue (y/n)"
 read locale
 if [ $locale = y ] || [ $locale = Y ]
 then
+	pacman -S nano
 	nano /etc/locale.gen
 	locale-gen
 else
@@ -81,10 +84,13 @@ fi
 echo
 
 # Time zone
+echo "========================================================"
+echo
 echo "Set your timezone by running the command:" 
 echo "ln -sf /usr/share/Region/City /etc/localtime"
 echo "Change Region and City to your location, start with capital letter."
 echo
-hwclock --systohc
-echo
+echo "Then run:" 
+echo "hwclock --systohc"
+echo "========================================================"
 echo "End of Chroot script!"

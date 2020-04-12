@@ -1,9 +1,11 @@
 #!/bin/bash
-#v0.0.3
+#v0.0.9
 # Check for internet connection
-echo "----	----"
+echo "----	---- ---- ---- ----"
+echo
 ping www.google.com -c 1
-echo "----	----"
+echo
+echo "----	---- ---- ---- ----"
 echo "Are you connected to the internet? (y/n)"
 read net
 if [ $net = y ] || [ $net = Y ]
@@ -35,7 +37,7 @@ echo
 # Sudo setup
 echo "Do you want to enable sudo? (y/n)"
 read sudo
-if [ $sudo = y ] || [ $sudo  = Y ]
+if [ $sudo = y ] || [ $sudo = Y ]
 then
 	pacman -S sudo
 	echo "Uncoment the -#- where you see, -%wheel ALL=(ALL) ALL- to add sudo privileges to your user."

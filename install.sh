@@ -1,21 +1,26 @@
 #!/bin/bash
-#v0.0.5
+#v0.0.9
 #
 # Arch check
-arch=´uname -m´
+arch=`uname -m`
 if [ $arch = x86_64 ]
 then
-	echo "You are running on a $arch machine"
+	echo "= = = ="
+	echo "You are running on a $arch machine!"
+	echo "= = = ="
 else
-	echo "You are not running on a 64 bit machine"
-	echo "you have a $arch"
+	echo "!! You are not running on a 64 bit machine !!"
+	echo "!! You have a $arch !!"
 	exit 1
 fi
+echo
 
 # Check for internet connection
-echo "----	----"
+echo "----	---- ---- ---- ----"
+echo
 ping www.google.com -c 1
-echo "----	----"
+echo
+echo "----	---- ---- ---- ----"
 echo "Are you connected to the internet? (y/n)"
 read net
 if [ $net = y ] || [ $net = Y ]
@@ -29,7 +34,9 @@ fi
 echo
 
 # Partitioning
+echo "= = = ="
 lsblk
+echo "= = = ="
 echo
 echo "Now you need to select what drive you want to install Arch Linux on, Example: sda"
 read disk
@@ -42,6 +49,9 @@ read diskcheck
 if [ $diskcheck = y ] || [ $diskcheck = Y ]
 then
 	sudo cfdisk /dev/$disk
+	echo "- - - -"
+	lsblk
+	echo "- - - -"
 	echo "Now select your partitions, Example if you created an EFI partition on /dev/sda4 type: 4"
 	echo "Where are your EFI partition located:"
 	read efi
@@ -75,7 +85,11 @@ fi
 echo
 
 # Base installation
+echo
+echo
+echo "= = = = = = = ="
 echo "Do you want to continue with the installation? (y/n)"
+echo "= = = = = = = ="
 read install
 if [ $install = y ] || [ $install = Y ]
 then
@@ -112,7 +126,6 @@ echo
 #fi
 echo
 
-echo "End of script!"
+echo "End of BASE script!"
 echo "Your installation of BASE is complete"
 echo "To create a user, boot into your new OS and run ./user.sh"
-echo "(In the root directory)"
