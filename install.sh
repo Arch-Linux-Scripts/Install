@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#v0.0.2
 # Check for internet connection
 echo ----	----
 ping www.google.com -c 1
