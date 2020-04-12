@@ -1,5 +1,17 @@
 #!/bin/bash
-#v0.0.4
+#v0.0.5
+#
+# Arch check
+arch=´uname -m´
+if [ $arch = x86_64 ]
+then
+	echo "You are running on a $arch machine"
+else
+	echo "You are not running on a 64 bit machine"
+	echo "you have a $arch"
+	exit 1
+fi
+
 # Check for internet connection
 echo "----	----"
 ping www.google.com -c 1
@@ -68,13 +80,15 @@ read install
 if [ $install = y ] || [ $install = Y ]
 then
 	mount /dev/$disk$root /mnt
-	pacstrap -i /mnt base
+	pacstrap -i /mnt base linux linux-firmware
 	mkdir /mnt/boot/efi
 	mount /dev/$disk$efi /mnt/boot/efi
 	genfstab -U /mnt >> /mnt/etc/fstab
 	cp chroot.sh /mnt
 	chmod 777 /mnt/chroot.sh
 	arch-chroot /mnt ./chroot.sh
+	cp user.sh /mnt/root
+	chmod 777 /mnt/root/user.sh
 else
 	echo
 	echo "!! Installation failed (pacstrap) !!"
@@ -99,6 +113,6 @@ echo
 echo
 
 echo "End of script!"
-echo "Your installation is BASE coplete"
+echo "Your installation of BASE is complete"
 echo "To create a user, boot into your new OS and run ./user.sh"
 echo "(In the root directory)"

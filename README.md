@@ -1,4 +1,4 @@
-==== v0.0.4 ====                             
+==== v0.0.5 ====                             
 ```bash
 !! Only works on x86_64-efi systems !!
 ```
@@ -13,11 +13,10 @@ Run: pacman -Sy
 And then: pacman -S git
 After that: git clone https://github.com/Arch-Linux-Scripts/install.git 
 ```
-3. chmod 777 all the downloaded files in the install directory
+3. chmod 777 install.sh, chroot.sh and user.sh and copy them out from the install directory to ~
 
-4. Then run the command: ./install/install.sh 
+4. Then run the command: ./install.sh 
 Follow the instructions...
 
 5. When the script is done, reboot and run the command: ./user.sh
 Follow the instructions...
-(The file is located in the root directory / )
