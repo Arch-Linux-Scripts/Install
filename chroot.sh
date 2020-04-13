@@ -1,5 +1,5 @@
 #!/bin/bash
-#v0.1.0
+#v0.1.1
 # Check for internet connection
 echo "---- ---- ---- ---- ----"
 echo
@@ -93,15 +93,4 @@ else
 	echo "You chose not to install ethernet software..."
 fi
 echo
-
-# Time zone
-echo "========================================================"
-echo
-echo "Set your timezone by running the command:" 
-echo "ln -sf /usr/share/Region/City /etc/localtime"
-echo "Change Region and City to your location, start with capital letter."
-echo
-echo "Then run:" 
-echo "hwclock --systohc"
-echo "========================================================"
 echo "End of Chroot script!"

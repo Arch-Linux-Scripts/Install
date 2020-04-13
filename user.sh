@@ -1,10 +1,11 @@
 #!/bin/bash
-#v0.1.0
+#v0.1.1
 
 # Ethernet
-systemctl enable dhcpd
-systemctl start dhcpd
+systemctl enable dhcpcd
+systemctl start dhcpcd
 echo "Ignore ^ if you use wifi"
+sleep 5
 echo
  
 # Check for internet connection
@@ -62,5 +63,17 @@ else
 fi
 echo
 
+# Time zone 
+echo "========================================================"
+echo
+echo "Set your timezone by running the command:" 
+echo "ln -sf /usr/share/Region/City /etc/localtime"
+echo "Change Region and City to your location, start with capital letter."
+echo
+echo "Then run:" 
+echo "hwclock --systohc"
+echo
+echo "========================================================"
+echo
 echo "Now login as your new user!"
 echo "Type exit to logout from root."

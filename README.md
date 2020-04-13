@@ -1,4 +1,4 @@
-==== v0.1.0 ====                             
+==== v0.1.1 ====                             
 ```bash
 !! Only works on x86_64-efi systems !!
 ```
@@ -27,7 +27,7 @@ Run: ./install.sh
 5. When the script is done
 ```bash
 Run: reboot
-Then login with username root and the password you chose
+Then login with username "root" and the password you chose
 After that run: ./user.sh
 ```
 Done!
