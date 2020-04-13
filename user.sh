@@ -1,11 +1,11 @@
 #!/bin/bash
-#v0.1.1
+#v0.1.2
 
 # Ethernet
 systemctl enable dhcpcd
 systemctl start dhcpcd
 echo "Ignore ^ if you use wifi"
-sleep 5
+sleep 12
 echo
  
 # Check for internet connection
@@ -67,7 +67,7 @@ echo
 echo "========================================================"
 echo
 echo "Set your timezone by running the command:" 
-echo "ln -sf /usr/share/Region/City /etc/localtime"
+echo "ln -sf /usr/share/zoneinfo/Region/City /etc/localtime"
 echo "Change Region and City to your location, start with capital letter."
 echo
 echo "Then run:" 
