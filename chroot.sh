@@ -1,11 +1,11 @@
 #!/bin/bash
-#v0.0.9
+#v0.1.0
 # Check for internet connection
-echo "----	---- ---- ---- ----"
+echo "---- ---- ---- ---- ----"
 echo
 ping www.google.com -c 1
 echo
-echo "----	---- ---- ---- ----"
+echo "---- ---- ---- ---- ----"
 echo "Are you connected to the internet? (y/n)"
 read net
 if [ $net = y ] || [ $net = Y ]
@@ -73,13 +73,24 @@ fi
 echo
 
 # Wifi
-echo "Do you want to install wifi software (dialog iw wpa_supplicant)? (y/n)"
+echo "Do you want to install wifi software? (dialog iw wpa_supplicant)? (y/n)"
 read wifi
 if [ $wifi = y ] || [ $wifi = Y ]
 then
 	pacman -S dialog iw wpa_supplicant
 else
 	echo "You chose not to install wifi software..."
+fi
+echo
+
+# Ethernet
+echo "Do you want to install ethernet software? (DHCPCD) (y/n)"
+read eth
+if [ $eth = y ] || [ $eth = Y ]
+then
+	pacman -S dhcpcd dhclient
+else
+	echo "You chose not to install ethernet software..."
 fi
 echo
 

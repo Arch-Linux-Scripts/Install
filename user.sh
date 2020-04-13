@@ -1,11 +1,18 @@
 #!/bin/bash
-#v0.0.9
+#v0.1.0
+
+# Ethernet
+systemctl enable dhcpd
+systemctl start dhcpd
+echo "Ignore ^ if you use wifi"
+echo
+ 
 # Check for internet connection
-echo "----	---- ---- ---- ----"
+echo "---- ---- ---- ---- ----"
 echo
 ping www.google.com -c 1
 echo
-echo "----	---- ---- ---- ----"
+echo "---- ---- ---- ---- ----"
 echo "Are you connected to the internet? (y/n)"
 read net
 if [ $net = y ] || [ $net = Y ]
@@ -43,7 +50,7 @@ then
 	echo "Uncoment the -#- where you see, -%wheel ALL=(ALL) ALL- to add sudo privileges to your user."
 	echo "continue (y/n)"
 else
-	Sudo not activated for this user
+	echo "Sudo not activated for this user"
 fi
 echo "If you skipped sudo, answer: n"
 read wheel

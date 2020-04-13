@@ -1,5 +1,5 @@
 #!/bin/bash
-#v0.0.9
+#v0.1.0
 #
 # Arch check
 arch=`uname -m`
@@ -16,11 +16,11 @@ fi
 echo
 
 # Check for internet connection
-echo "----	---- ---- ---- ----"
+echo "---- ---- ---- ---- ----"
 echo
 ping www.google.com -c 1
 echo
-echo "----	---- ---- ---- ----"
+echo "---- ---- ---- ---- ----"
 echo "Are you connected to the internet? (y/n)"
 read net
 if [ $net = y ] || [ $net = Y ]
@@ -40,9 +40,10 @@ echo "= = = ="
 echo
 echo "Now you need to select what drive you want to install Arch Linux on, Example: sda"
 read disk
+echo "= = = = = ="
 echo "After the next choise, cfdisk are going to be opened."
 echo "Please create one EFI, SWAP and ROOT partition."
-echo
+echo "= = = = = ="
 echo "Is this the right drive?"
 echo "/dev/$disk (y/n)"
 read diskcheck
