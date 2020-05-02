@@ -1,5 +1,5 @@
 #!/bin/bash
-#v0.1.1
+#v0.1.3
 # Check for internet connection
 echo "---- ---- ---- ---- ----"
 echo
@@ -43,8 +43,8 @@ read host
 if [ $host = y ] || [ $host = Y ]
 then
 	echo "127.0.0.1	localhost
-	::1		localhost
-	127.0.1.1	$hostnm.localdomain	$hostnm" > /etc/hosts
+::1		localhost
+127.0.1.1	$hostnm.localdomain	$hostnm" > /etc/hosts
 	echo
 	echo $hostnm > /etc/hostname
 else
@@ -73,11 +73,11 @@ fi
 echo
 
 # Wifi
-echo "Do you want to install wifi software? (dialog iw wpa_supplicant)? (y/n)"
+echo "Do you want to install wifi software? (wpa_supplicant wireless_tools NetworkManager)? (y/n)"
 read wifi
 if [ $wifi = y ] || [ $wifi = Y ]
 then
-	pacman -S dialog iw wpa_supplicant
+	pacman -S wpa_supplicant wireless_tools networkmanager
 else
 	echo "You chose not to install wifi software..."
 fi

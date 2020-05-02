@@ -1,11 +1,22 @@
 #!/bin/bash
-#v0.1.2
+#v0.1.3
 
 # Ethernet
-systemctl enable dhcpcd
-systemctl start dhcpcd
-echo "Ignore ^ if you use wifi"
-sleep 12
+echo "Do you want to enable Ethernet services? (y/n)"
+read eth
+if [ $eth = y ] || [ $eth = Y ]
+then
+	systemctl enable dhcpcd
+	systemctl start dhcpcd
+	sleep 12
+else
+	echo "If you want to enable wifi, type this:"
+	echo "systemctl enable NetworkManager"
+	echo "systemctl enable wpa_supplicant"
+	echo "systemctl start NetworkManeger"
+	echo "nmcli dev wifi SSID password PASS"
+	sleep 12
+fi
 echo
  
 # Check for internet connection
