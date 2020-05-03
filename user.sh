@@ -1,5 +1,5 @@
 #!/bin/bash
-#v0.1.3
+#v0.1.4
 
 # Ethernet
 echo "Do you want to enable Ethernet services? (y/n)"
@@ -14,7 +14,7 @@ else
 	echo "systemctl enable NetworkManager"
 	echo "systemctl enable wpa_supplicant"
 	echo "systemctl start NetworkManeger"
-	echo "nmcli dev wifi SSID password PASS"
+	echo "nmcli dev wifi con SSID password PASS"
 	sleep 12
 fi
 echo
